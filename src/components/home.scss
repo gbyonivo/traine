@@ -1,0 +1,41 @@
+.home{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  a{
+    text-decoration: none;
+    color: #fff;
+    .nav{
+      height: 100%;
+      display: grid;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      &.forecast{
+        font-size: 40px;
+        background: #747cc9;
+      }
+      &.current{
+        font-size: 40px;
+        background: #87a092;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .home{
+    grid-template-columns: 1fr;
+    .nav{
+      height: 50%;
+      &.forecast{
+        font-size: 40px;
+      }
+      &.current{
+        font-size: 40px;
+      }
+    }
+  }
+}

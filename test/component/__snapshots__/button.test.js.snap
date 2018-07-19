@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component renders correctly when isLoading is false 1`] = `
+<div
+  className="buttonDiv"
+>
+  <button
+    onClick={[Function]}
+  >
+    play
+  </button>
+</div>
+`;
+
+exports[`Button component renders correctly when isLoading is true 1`] = `
+<div
+  className="buttonDiv"
+>
+  <button
+    disabled={true}
+    onClick={[Function]}
+  >
+    play...
+  </button>
+</div>
+`;

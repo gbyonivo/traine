@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home should render correctly 1`] = `
+<div
+  className="home"
+>
+  <a
+    href="/current"
+    onClick={[Function]}
+  >
+    <div
+      className="current nav"
+    >
+      Current Weather
+    </div>
+  </a>
+  <a
+    href="/forecast"
+    onClick={[Function]}
+  >
+    <div
+      className="forecast nav"
+    >
+      Weather Forecast
+    </div>
+  </a>
+</div>
+`;
