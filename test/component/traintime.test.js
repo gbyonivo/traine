@@ -1,13 +1,13 @@
 import React from 'react';
 import { create } from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import Home from '../../src/components/home';
+import TrainTimes from '../../src/components/traintimes';
 
-describe('Home', () => {
+describe('TrainTimes', () => {
   it('should render correctly', () => {
     const actual = create(
       <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
-        <Home/>
+        <TrainTimes/>
       </MemoryRouter>
     );
     expect(actual).toMatchSnapshot();

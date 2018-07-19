@@ -22,7 +22,7 @@ export function* fetchDataSaga() {
 
 export function* sagas() {
   yield all([
-    takeLatest(FETCH_DATA, fetchDataSaga)
+    call(fetchDataSaga)
   ]);
 }
 

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import reducer from './reducers';
 import rootSaga from './sagas';
-import Home from './components/home';
+import TrainTimes from './components/traintimes';
 
 import './index.scss';
 
@@ -25,7 +25,7 @@ sagaMiddleware.run(rootSaga);
 ReactDOM.render(<Provider store={store}>
   <BrowserRouter>
     <div>
-      <Route path="/" component={Home} exact />
+      <Route path="/" component={TrainTimes} exact />
     </div>
   </BrowserRouter>
 </Provider>, document.getElementById('index')); //eslint-disable-line

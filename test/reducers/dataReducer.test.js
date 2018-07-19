@@ -9,14 +9,9 @@ import { data } from '../__testData__';
 
 
 const initialState = {
-  locations: [],
-  activeLocation: '',
   errorFetchingData: undefined,
-  errorFetchingForecast: undefined,
   isFetchingData: false,
-  isFetchingForecast: false,
   data: {},
-  forecast: {}
 };
 
 describe('FETCH_DATA', () => {

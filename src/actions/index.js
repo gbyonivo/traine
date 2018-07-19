@@ -4,9 +4,9 @@ import {
   ERROR_FETCHING_DATA
 } from '../constants/actionTypes';
 
-export const fetchData = location => ({
+export const fetchData = data => ({
   type: FETCH_DATA,
-  payload: { location }
+  payload: { data }
 });
 
 export const doneFetchingData = data => ({

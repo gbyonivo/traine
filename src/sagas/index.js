@@ -1,8 +1,8 @@
 import { call } from 'redux-saga/effects';
-import weatherSagas from './weatherSagas';
+import trainTimesSagas from './trainTimesSagas';
 
 export default function* rootSaga() {
   yield [
-    call(weatherSagas)
+    call(trainTimesSagas)
   ];
 }
