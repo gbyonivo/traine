@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import { createStore, applyMiddleware, compose } from 'redux';
+import WebFont from 'webfontloader';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -19,6 +20,14 @@ const store = createStore(
     window.devToolsExtension ? window.devToolsExtension() : f => f //eslint-disable-line
   )
 );
+
+WebFont.load({
+  google: {
+    families: [
+      'Patua One'
+    ]
+  }
+});
 
 sagaMiddleware.run(rootSaga);
 

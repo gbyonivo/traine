@@ -1,3 +1,14 @@
-.traintimes{}
+.traintimes{
+  width: 700px;
+  margin-left: calc(50% - 350px);
+  height: 100%;
+  overflow: auto;
+  border: solid 12px rgba(204, 204, 204, 0.4);
+}
 
-@media screen and (max-width: 376px) {}
+@media screen and (max-width: 786px) {
+  .traintimes{
+    width: calc(100% - 24px);
+    margin: 0;
+  }
+}
