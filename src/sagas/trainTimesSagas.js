@@ -7,9 +7,11 @@ import {
 import {
   doneFetchingData,
   errorFetchingData,
+  errorFetchingPattern,
+  doneFetchingPattern,
 } from '../actions';
-import { fetchDataFromAPI } from '../api/apiService';
-import { FETCH_DATA } from '../constants/actionTypes';
+import { fetchDataFromAPI, fetchPatternFromAPI } from '../api/apiService';
+import { FETCH_PATTERN } from '../constants/actionTypes';
 
 export function* fetchDataSaga() {
   try {
@@ -20,9 +22,19 @@ export function* fetchDataSaga() {
   }
 }
 
+export function* fetchPatternSaga({ payload: { callingPatternUrl } }) {
+  try {
+    const data = yield call(fetchPatternFromAPI, callingPatternUrl);
+    yield put(doneFetchingPattern(data));
+  } catch (error) {
+    yield put(errorFetchingPattern('Error fetching pattern'));
+  }
+}
+
 export function* sagas() {
   yield all([
-    call(fetchDataSaga)
+    call(fetchDataSaga),
+    takeLatest(FETCH_PATTERN, fetchPatternSaga)
   ]);
 }
 

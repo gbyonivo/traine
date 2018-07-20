@@ -4,7 +4,7 @@ import styles from './timesJourney.scss';
 
 const extractTime = date => date.substr(11, 5);
 
-const TimesJourney = ({ timesJourney }) => <div className={styles.timesJourney}>
+const TimesJourney = ({ timesJourney, onClick }) => <div className={styles.timesJourney} onClick={() => onClick(timesJourney.callingPatternUrl)}>
   <div className={styles.scheduledTime}>
     {extractTime(timesJourney.scheduledInfo.scheduledTime)}
   </div>
@@ -24,7 +24,8 @@ const TimesJourney = ({ timesJourney }) => <div className={styles.timesJourney}>
 </div>;
 
 TimesJourney.propTypes = {
-  timesJourney: PropTypes.object.isRequired
+  timesJourney: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default TimesJourney;

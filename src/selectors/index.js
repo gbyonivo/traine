@@ -1,1 +1,1 @@
-export const selectData = ({ dataReducer: { data } }) => data; // eslint-disable-line
+export const selectData = ({ dataReducer: { data } }) => data.services || []; // eslint-disable-line

@@ -2,12 +2,17 @@ import {
   FETCH_DATA,
   DONE_FETCHING_DATA,
   ERROR_FETCHING_DATA,
+  FETCH_PATTERN,
+  DONE_FETCHING_PATTERN,
 } from '../constants/actionTypes';
 
 const initialState = {
-  errorFetchingData: undefined,
+  errorFetchingData: null,
   isFetchingData: false,
   data: {},
+  pattern: {},
+  errorFetchingPattern: null,
+  isFetchingPattern: false
 };
 
 const ACTION_HANDLERS = {
@@ -20,13 +25,31 @@ const ACTION_HANDLERS = {
     ...state,
     isFetchingData: false,
     data,
-    errorFetchingData: undefined,
+    errorFetchingData: null,
   }),
 
   [ERROR_FETCHING_DATA]: (state, { error: errorFetchingData }) => ({
     ...state,
     isFetchingData: false,
     errorFetchingData
+  }),
+
+  [FETCH_PATTERN]: state => ({
+    ...state,
+    isFetchingPattern: true
+  }),
+
+  [DONE_FETCHING_PATTERN]: (state, { pattern }) => ({
+    ...state,
+    isFetchingPattern: false,
+    pattern,
+    errorFetchingPattern: null,
+  }),
+
+  [ERROR_FETCHING_DATA]: (state, { error: errorFetchingPattern }) => ({
+    ...state,
+    isFetchingPattern: false,
+    errorFetchingPattern
   }),
 
 };
