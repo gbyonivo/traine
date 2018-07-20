@@ -1,0 +1,15 @@
+.stop{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  .status{
+
+  }
+  .location{
+
+  }
+  .time{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    text-align: center;
+  }
+}

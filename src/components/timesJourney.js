@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './timesJourney.scss';
-
-const extractTime = date => date.substr(11, 5);
+import { extractTime } from '../functions';
 
 const TimesJourney = ({ timesJourney }) => <li><Link to={timesJourney.serviceIdentifier}><div className={styles.timesJourney}>
   <div className={styles.scheduledTime}>

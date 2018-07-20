@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import * as actions from '../actions';
 import { selectPattern, selectIsFetchingPattern } from '../selectors';
 import Header from '../components/patternHeader';
+import Stops from '../components/stops';
 
 class Pattern extends Component {
   componentDidMount() {
@@ -17,17 +18,22 @@ class Pattern extends Component {
   render() {
     const { pattern, isFetchingPattern } = this.props;
     return (<div>
-      {isFetchingPattern || !pattern.transportMode
-        ? <span>
-          loading
-        </span>
-        : <Header
-          headerData={{
-            operatedBy: pattern.serviceOperator,
-            destination: pattern.serviceDestinations[0],
-            origin: pattern.serviceOrigins[0]
-          }}
-        />}
+      {
+        isFetchingPattern || !pattern.transportMode
+          ? <span>
+            loading
+          </span>
+          : <div>
+            <Header
+              headerData={{
+                operatedBy: pattern.serviceOperator,
+                destination: pattern.serviceDestinations[0],
+                origin: pattern.serviceOrigins[0]
+              }}
+            />
+            <Stops stops={pattern.stops}/>
+          </div>
+      }
     </div>);
   }
 }
