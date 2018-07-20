@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import reducer from './reducers';
 import rootSaga from './sagas';
-import TrainTimes from './components/traintimes';
+import TrainTimes from './containers/traintimes';
 
 import './index.scss';
 

@@ -11,7 +11,7 @@ import {
   doneFetchingPattern,
 } from '../actions';
 import { fetchDataFromAPI, fetchPatternFromAPI } from '../api/apiService';
-import { FETCH_PATTERN } from '../constants/actionTypes';
+import { FETCH_PATTERN, FETCH_DATA } from '../constants/actionTypes';
 
 export function* fetchDataSaga() {
   try {
@@ -33,7 +33,7 @@ export function* fetchPatternSaga({ payload: { callingPatternUrl } }) {
 
 export function* sagas() {
   yield all([
-    call(fetchDataSaga),
+    takeLatest(FETCH_DATA, fetchDataSaga),
     takeLatest(FETCH_PATTERN, fetchPatternSaga)
   ]);
 }
