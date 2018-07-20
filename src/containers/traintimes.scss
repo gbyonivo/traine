@@ -4,6 +4,8 @@
   height: 100%;
   overflow: auto;
   border: solid 12px rgba(204, 204, 204, 0.4);
+  list-style-type: none;
+  padding: 0;
 }
 
 @media screen and (max-width: 786px) {

@@ -5,7 +5,7 @@ import styles from './timesJourney.scss';
 
 const extractTime = date => date.substr(11, 5);
 
-const TimesJourney = ({ timesJourney }) => <Link to={timesJourney.serviceIdentifier}><div className={styles.timesJourney}>
+const TimesJourney = ({ timesJourney }) => <li><Link to={timesJourney.serviceIdentifier}><div className={styles.timesJourney}>
   <div className={styles.scheduledTime}>
     {extractTime(timesJourney.scheduledInfo.scheduledTime)}
   </div>
@@ -22,7 +22,7 @@ const TimesJourney = ({ timesJourney }) => <Link to={timesJourney.serviceIdentif
       )
     }
   </div>
-</div></Link>;
+</div></Link></li>;
 
 TimesJourney.propTypes = {
   timesJourney: PropTypes.object.isRequired

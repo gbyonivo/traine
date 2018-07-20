@@ -1,0 +1,25 @@
+.header{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-auto-rows: minmax(30px, auto);
+  .destination{
+    span{
+      color: #ccc;
+    }
+  }
+  .operatedBy{
+    color: #ccc;
+  }
+  .origin{
+
+  }
+  .trainIcon{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    font-size: 40px;
+    text-align: center;
+    // &::after{
+    //   content: '\9a86'
+    // }
+  }
+}

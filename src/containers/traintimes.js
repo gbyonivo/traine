@@ -15,7 +15,7 @@ class TrainTimes extends Component {
 
   render() {
     const { trainTimes, fetchPattern } = this.props;
-    return (<div className={styles.traintimes}>
+    return (<ul className={styles.traintimes}>
       {
         trainTimes.map((timesJourney, index) => <TimesJourney
           key={`${timesJourney.serviceIdentifier}-${index}`}
@@ -23,7 +23,7 @@ class TrainTimes extends Component {
           onClick={fetchPattern}
         />)
       }
-    </div>);
+    </ul>);
   }
 }
 
