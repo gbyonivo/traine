@@ -8,6 +8,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import reducer from './reducers';
 import rootSaga from './sagas';
 import TrainTimes from './containers/traintimes';
+import Pattern from './containers/pattern';
 
 import './index.scss';
 
@@ -35,6 +36,7 @@ ReactDOM.render(<Provider store={store}>
   <BrowserRouter>
     <div>
       <Route path="/" component={TrainTimes} exact />
+      <Route path="/:serviceIdentifier" component={Pattern} exact />
     </div>
   </BrowserRouter>
 </Provider>, document.getElementById('index')); //eslint-disable-line

@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './timesJourney.scss';
 
 const extractTime = date => date.substr(11, 5);
 
-const TimesJourney = ({ timesJourney, onClick }) => <div className={styles.timesJourney} onClick={() => onClick(timesJourney.callingPatternUrl)}>
+const TimesJourney = ({ timesJourney }) => <Link to={timesJourney.serviceIdentifier}><div className={styles.timesJourney}>
   <div className={styles.scheduledTime}>
     {extractTime(timesJourney.scheduledInfo.scheduledTime)}
   </div>
@@ -21,11 +22,10 @@ const TimesJourney = ({ timesJourney, onClick }) => <div className={styles.times
       )
     }
   </div>
-</div>;
+</div></Link>;
 
 TimesJourney.propTypes = {
-  timesJourney: PropTypes.object.isRequired,
-  onClick: PropTypes.func.isRequired
+  timesJourney: PropTypes.object.isRequired
 };
 
 export default TimesJourney;

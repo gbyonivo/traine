@@ -23,9 +23,9 @@ export const errorFetchingData = error => ({
   payload: { error }
 });
 
-export const fetchPattern = callingPatternUrl => ({
+export const fetchPattern = serviceIdentifier => ({
   type: FETCH_PATTERN,
-  payload: { callingPatternUrl }
+  payload: { serviceIdentifier }
 });
 
 export const doneFetchingPattern = pattern => ({

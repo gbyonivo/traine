@@ -22,9 +22,9 @@ export function* fetchDataSaga() {
   }
 }
 
-export function* fetchPatternSaga({ payload: { callingPatternUrl } }) {
+export function* fetchPatternSaga({ payload: { serviceIdentifier } }) {
   try {
-    const data = yield call(fetchPatternFromAPI, callingPatternUrl);
+    const data = yield call(fetchPatternFromAPI, serviceIdentifier);
     yield put(doneFetchingPattern(data));
   } catch (error) {
     yield put(errorFetchingPattern('Error fetching pattern'));
