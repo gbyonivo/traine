@@ -1,7 +1,7 @@
 import { call, put, select, takeLatest, all } from 'redux-saga/effects'; // eslint-disable-line
 import { fetchDataSaga, sagas, fetchPatternSaga } from '../../src/sagas/trainTimesSagas';
-import { fetchDataFromAPI } from '../../src/api/apiService';
-import { doneFetchingData } from '../../src/actions';
+import { fetchDataFromAPI, fetchPatternFromAPI } from '../../src/api/apiService';
+import { doneFetchingData, doneFetchingPattern } from '../../src/actions';
 import { FETCH_DATA, FETCH_PATTERN } from '../../src/constants/actionTypes';
 
 
@@ -18,6 +18,23 @@ describe('fetchDataSaga', () => {
     const expected = [
       { done: false, value: call(fetchDataFromAPI) },
       { done: false, value: put(doneFetchingData(data)) },
+      { done: true, value: undefined }
+    ];
+    expect(actual).toEqual(expected);
+  });
+});
+
+describe('fetchPatternSaga', () => {
+  it('should call fetchPatternSagaFromAPI and doneFetchingPattern', () => {
+    const gen = fetchPatternSaga({ payload: { serviceIdentifier: 1 } });
+    const actual = [
+      gen.next(),
+      gen.next(data),
+      gen.next(),
+    ];
+    const expected = [
+      { done: false, value: call(fetchPatternFromAPI, 1) },
+      { done: false, value: put(doneFetchingPattern(data)) },
       { done: true, value: undefined }
     ];
     expect(actual).toEqual(expected);
