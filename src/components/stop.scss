@@ -1,15 +1,57 @@
 .stop{
   display: grid;
   grid-template-columns: 1fr 4fr;
-  .status{
-    font-size: 12px;
+  grid-auto-rows: minmax(60px, auto);
+  .locationAndStatus{
+    position: relative;
+    border-left: 2px solid #ececec;
+    padding-left: 20px;
+    .location{
+      font-size: 18px;
+      position: relative;
+      &::before{ 
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        top: 0;
+        left: -1.95rem;
+        position: absolute;
+        content: "";
+        z-index: 10;
+        z-index: 10;
+      }
+    }
+    .status{
+      font-size: 12px;
+    }
+    &::before{
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      border: 2px solid #ececec;
+      background: #fff;
+      top: 0;
+      left: -0.6rem;
+      position: absolute;
+      content: "";
+    }
   }
-  .location{
-    font-size: 18px;
-  }
+  
   .time{
-    grid-row-start: 1;
-    grid-row-end: 4;
     text-align: center;
+  }
+
+  &.HALTED .locationAndStatus .location::before{
+    background: red;
+    border: 2px solid rgba(255, 255, 255, 0);
+  }
+  &.NOT_STARTED .locationAndStatus .location::before{
+    background: green;
+    border: 2px solid rgba(255, 255, 255, 0);
+  }
+  &.MOVING .locationAndStatus .location::before{
+    background: orange;
+    top: 1.8rem;
+    border: 2px solid rgba(255, 255, 255, 0);
   }
 }

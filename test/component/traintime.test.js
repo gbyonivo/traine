@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { create } from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -10,7 +10,7 @@ import { stateWithData } from '../__testData__';
 describe('TrainTimes', () => {
   it('should render correctly', () => {
     const store = createStore(combinedReducer(), { dataReducer: stateWithData });
-    const actual = mount(
+    const actual = create(
       <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
         <Provider store={store}>
           <TrainTimes />

@@ -100,3 +100,58 @@ describe('getStationAndPosition', () => {
     expect(actual).toMatchObject(expected);
   });
 });
+
+describe('', () => {
+  it('=====As10:00,Ar10:00======Ds11:10======(CT = 11:15)=====Dr 11:21  => Dept. 11:21', () => {
+    const arrival = {
+      scheduled: { scheduledTime: '2018-07-21T10:00:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T10:00:00+01:00' } }
+    };
+    const departure = {
+      scheduled: { scheduledTime: '2018-07-21T11:10:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T11:21:00+01:00' } }
+    };
+    const actual = Functions.getMessage(departure, arrival, '2018-07-21T11:15:00+01:00');
+    const expected = 'Dept. 11:21';
+    expect(actual).toEqual(expected);
+  });
+  it('=====As10:00,Ar10:00======Ds11:21,Dr11:21====(CT = 11:22)==  => On Time', () => {
+    const arrival = {
+      scheduled: { scheduledTime: '2018-07-21T10:00:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T10:00:00+01:00' } }
+    };
+    const departure = {
+      scheduled: { scheduledTime: '2018-07-21T11:21:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T11:21:00+01:00' } }
+    };
+    const actual = Functions.getMessage(departure, arrival, '2018-07-21T11:24:00+01:00');
+    const expected = 'On Time';
+    expect(actual).toEqual(expected);
+  });
+  it('(CT = 09:15)=====As10:00===Ar10:03======Ds11:10===========Dr 11:21  => Exp 10:03', () => {
+    const arrival = {
+      scheduled: { scheduledTime: '2018-07-21T10:00:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T10:03:00+01:00' } }
+    };
+    const departure = {
+      scheduled: { scheduledTime: '2018-07-21T11:10:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T11:21:00+01:00' } }
+    };
+    const actual = Functions.getMessage(departure, arrival, '2018-07-21T09:15:00+01:00');
+    const expected = 'Exp 10:03';
+    expect(actual).toEqual(expected);
+  });
+  it('(CT = 09:15)=====As10:00,Ar10:00======Ds11:10===========Dr 11:21  => Exp 10:03', () => {
+    const arrival = {
+      scheduled: { scheduledTime: '2018-07-21T10:00:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T10:00:00+01:00' } }
+    };
+    const departure = {
+      scheduled: { scheduledTime: '2018-07-21T11:10:00+01:00' },
+      realTime: { realTimeServiceInfo: { realTime: '2018-07-21T11:21:00+01:00' } }
+    };
+    const actual = Functions.getMessage(departure, arrival, '2018-07-21T09:15:00+01:00');
+    const expected = 'On Time';
+    expect(actual).toEqual(expected);
+  });
+});

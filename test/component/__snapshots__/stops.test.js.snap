@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Stops should render correctly should render Correctly 1`] = `
+<div>
+  <div
+    className="stop "
+  >
+    <div
+      className="time"
+    >
+      00:27
+    </div>
+    <div
+      className="locationAndStatus"
+    >
+      <div
+        className="location"
+      >
+        WAT
+      </div>
+      <div
+        className="status"
+      >
+        On Time
+      </div>
+    </div>
+  </div>
+  <div
+    className="stop "
+  >
+    <div
+      className="time"
+    >
+      00:30
+    </div>
+    <div
+      className="locationAndStatus"
+    >
+      <div
+        className="location"
+      >
+        VXH
+      </div>
+      <div
+        className="status"
+      >
+        On Time
+      </div>
+    </div>
+  </div>
+  <div
+    className="stop "
+  >
+    <div
+      className="time"
+    >
+      00:35
+    </div>
+    <div
+      className="locationAndStatus"
+    >
+      <div
+        className="location"
+      >
+        CLJ
+      </div>
+      <div
+        className="status"
+      >
+        On Time
+      </div>
+    </div>
+  </div>
+  <div
+    className="stop HALTED"
+  >
+    <div
+      className="time"
+    >
+      01:12
+    </div>
+    <div
+      className="locationAndStatus"
+    >
+      <div
+        className="location"
+      >
+        WOK
+      </div>
+      <div
+        className="status"
+      >
+        On Time
+      </div>
+    </div>
+  </div>
+</div>
+`;

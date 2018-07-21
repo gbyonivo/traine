@@ -219,7 +219,7 @@ export const stops = [
       realTime: {
         realTimeServiceInfo: {
           hasArrived: false,
-          realTime: '2018-07-21T01:12:00+01:00',
+          realTime: '2018-07-21T01:13:00+01:00',
           realTimePlatform: '5',
           realTimeFlag: 'Estimate'
         }

@@ -1,31 +1,39 @@
 import dateFns from 'date-fns';
 import { HALTED, MOVING, NOT_STARTED } from '../constants/positionTypes';
 
-const extractMessage = (arrivalOrDeperature, text) => arrivalOrDeperature.realTime //eslint-disable-line
-  ? arrivalOrDeperature.scheduled.scheduledTime === arrivalOrDeperature.realTime.realTimeServiceInfo.realTime
-    ? 'On Time'
-    : `${text} ${arrivalOrDeperature.realTime.realTimeServiceInfo.realTime || arrivalOrDeperature.scheduled.scheduledTime}`
-  : `${text} ${arrivalOrDeperature.scheduled.scheduledTime}`;
+export const extractTime = date => dateFns.format(date || new Date(), 'HH:mm');
 
-export const getTrainStatusMessage = (arrival, departure) => arrival.notApplicable
-  ? extractMessage(departure, 'Dept.')
-  : extractMessage(arrival, 'Exp.');
+export const getRealTime = ({ realTime }) => realTime ? extractTime(realTime.realTimeServiceInfo.realTime) : '';
 
-export const extractTime = date => dateFns.format(date, 'HH:mm');
+export const getScheduledTime = ({ scheduled }) => scheduled ? extractTime(scheduled.scheduledTime) : '';
 
-export const getActualTime = (arrivalOrDeperature) => {
-  if (arrivalOrDeperature.realTime) {
-    return extractTime(arrivalOrDeperature.realTime.realTimeServiceInfo.realTime);
+export const getActualTime = arrivalOrDeperature => arrivalOrDeperature.realTime
+  ? getRealTime(arrivalOrDeperature)
+  : getScheduledTime(arrivalOrDeperature);
+
+export const getMessage = (departure, arrival, currentDateTime) => {
+  const currentTime = extractTime(currentDateTime);
+  const actualArrivalTime = getActualTime(arrival);
+  if (currentTime < actualArrivalTime) {
+    const scheduledArrivalTime = getScheduledTime(arrival);
+    const realArrivalTime = getRealTime(arrival);
+    if (scheduledArrivalTime === realArrivalTime) {
+      return 'On Time';
+    }
+    return `Exp ${realArrivalTime}`;
   }
-  if (arrivalOrDeperature.scheduled) {
-    return extractTime(arrivalOrDeperature.scheduled.scheduledTime);
+  const actualDepartureTime = getActualTime(departure);
+  const scheduledDepartureTime = getScheduledTime(departure);
+  const realDepartureTime = getRealTime(departure);
+  if (scheduledDepartureTime === realDepartureTime) {
+    return 'On Time';
   }
-  return '';
+  return `Dept. ${actualDepartureTime}`;
 };
 
 export const shouldStartTime = (lastJourney, currentTime) => currentTime <= getActualTime(lastJourney.arrival);
 
-export const getStationAndPosition = (stops, currentTime) => {
+export const getStationAndPosition = (stops, currentTime) => { // to be refactored... tdd!
   let stationAndPosition = {};
   stops.some((stop, index) => {
     const stopDepartureTime = getActualTime(stop.departure);

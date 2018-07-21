@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`patternHeader should render correctly 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="trainIcon"
+  >
+    T
+  </div>
+  <div
+    className="origin"
+  >
+    Now Naija
+  </div>
+  <div
+    className="destination"
+  >
+    <span>
+      to
+    </span>
+     
+    Better Naija
+  </div>
+  <div
+    className="operatedBy"
+  >
+    Me and You
+  </div>
+</div>
+`;

@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Stop from './stop';
 import trackClock from '../hocs/trackClock';
 
-const Stops = ({ stops }) => <div>
+const Stops = ({ stops, ...rest }) => <div>
   {
-    stops.map(stop => <Stop stop={stop} key={stop.location.crs}/>)
+    stops.map((stop, index) => <Stop stop={stop} key={`${stop.location.crs}-${index}`} {...rest}/>)
   }
 </div>;
 

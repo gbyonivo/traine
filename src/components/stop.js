@@ -1,24 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getTrainStatusMessage } from '../functions';
+import { getMessage, getScheduledTime } from '../functions';
 
-import styles from './stop.scss';
-import Time from './time';
+import styles from './stop.scss'; //eslint-disable-line
 
-const Stop = ({ stop: { arrival, location, departure } }) => <div className={styles.stop}>
+const Stop = ({ stop: { arrival, location, departure }, currentTrainLocation }) => <div
+  className={`${styles.stop} ${location.crs === currentTrainLocation.station ? `${styles[currentTrainLocation.positionType]}` : ''}`}>
   <div className={styles.time}>
-    {
-      arrival.notApplicable
-        ? <Time date={departure.scheduled.scheduledTime}/>
-        : <Time date={arrival.scheduled.scheduledTime}/>
-    }
+    { getScheduledTime(arrival.notApplicable ? departure : arrival) }
   </div>
-  <div className={styles.location}>{location.crs}</div>
-  <div className={styles.status}>{getTrainStatusMessage(arrival, departure)}</div>
+  <div className={styles.locationAndStatus}>
+    <div className={styles.location}>{location.crs}</div>
+    <div className={styles.status}>{getMessage(departure, arrival)}</div>
+  </div>
 </div>;
 
 Stop.propTypes = {
-  stop: PropTypes.object.isRequired
+  stop: PropTypes.object.isRequired,
+  currentTrainLocation: PropTypes.object.isRequired
 };
 
 export default Stop;

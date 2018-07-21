@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Time should render correctly 1`] = `
+<span>
+  00:35
+</span>
+`;

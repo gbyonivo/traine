@@ -29,9 +29,11 @@ export default (Component) => {
 
     startTimer() {
       const { stops } = this.props;
-      // if (shouldStartTime(this.props.stops[0], this.props.stops[stops.length - 1], extractTime(this.state.currentDateTime))) {
+      if (!stops || stops.length === 0 || !shouldStartTime(this.props.stops[stops.length - 1], extractTime(this.state.currentDateTime))) {
+        this.clearTimer();
+        return;
+      }
       this.timer = setTimeout(this.addTime, 60000);
-      // }
     }
 
     addTime() {
@@ -45,14 +47,16 @@ export default (Component) => {
     }
 
     render() {
-      console.log(getStationAndPosition(this.props.stops, extractTime(this.state.currentDateTime)));
       return <Component
         {...this.props}
-        {...this.state}
         currentTrainLocation = {getStationAndPosition(this.props.stops, extractTime(this.state.currentDateTime))}
       />;
     }
   }
+
+  TrackClock.defaultProps = {
+    stops: []
+  };
 
   TrackClock.propTypes = {
     stops: PropTypes.array.isRequired
