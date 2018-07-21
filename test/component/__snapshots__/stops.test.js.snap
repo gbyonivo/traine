@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stops should render correctly should render Correctly 1`] = `
-<div>
-  <div
+<ul
+  className="stops"
+>
+  <li
     className="
       stop
       "
@@ -26,8 +28,8 @@ exports[`Stops should render correctly should render Correctly 1`] = `
         On Time
       </div>
     </div>
-  </div>
-  <div
+  </li>
+  <li
     className="
       stop
       "
@@ -51,8 +53,8 @@ exports[`Stops should render correctly should render Correctly 1`] = `
         On Time
       </div>
     </div>
-  </div>
-  <div
+  </li>
+  <li
     className="
       stop
       "
@@ -76,8 +78,8 @@ exports[`Stops should render correctly should render Correctly 1`] = `
         On Time
       </div>
     </div>
-  </div>
-  <div
+  </li>
+  <li
     className="
       stop
       HALTED"
@@ -101,6 +103,6 @@ exports[`Stops should render correctly should render Correctly 1`] = `
         On Time
       </div>
     </div>
-  </div>
-</div>
+  </li>
+</ul>
 `;

@@ -1,47 +1,55 @@
-.timesJourney{
-  display: grid;
-  grid-template-columns: 1fr 4fr 2.3fr;
-  grid-auto-rows: minmax(48px, auto);
-  border-bottom: rgba(191, 191, 191, 0.26) solid 1px;
-  position: relative;
-  &::after{
-    content: '>';
-    position: absolute;
-    top: 40px;
-    right: 3px;
-    color: #3366CC;
+.timesJourneyItem{
+  a{
+    text-decoration: none;
+    color: #000;
   }
-  .scheduledTime{
-    grid-row-start: 1;
-    grid-row-end: 3;
-    font-weight: 900;
-  }
+  .timesJourney{
+    display: grid;
+    grid-template-columns: 2fr 4fr 2.3fr;
+    grid-auto-rows: minmax(48px, auto);
+    border-bottom: rgba(191, 191, 191, 0.26) solid 1px;
+    position: relative;
+    background-image: linear-gradient(#f1f1f1, #fff);
+    &::after{
+      content: '\27a4';
+      position: absolute;
+      top: 40px;
+      right: 3px;
+      color: #3366CC;
+    }
+    .scheduledTime{
+      grid-row-start: 1;
+      grid-row-end: 3;
+      font-weight: 900;
+      font-size: 20px;
+    }
 
-  .scheduledTime, .platform, .origin, .updateTime {
-    padding: 15px 5px 0 5px;
-  }
+    .scheduledTime, .platform, .origin, .updateTime, .destination {
+      padding: 15px 5px 0 5px;
+    }
 
-  .updateTime, .platform, .scheduledTime{
-    text-align: center;
-  }
+    .updateTime, .platform, .scheduledTime{
+      text-align: center;
+    }
 
-  .platform, .updateTime{
-    padding-right: 20px;
-  }
-  .updateTime{
-    color: red;
-  }
+    .platform, .updateTime{
+      padding-right: 20px;
+      font-size: 15px;
+    }
+    .updateTime{
+      color: red;
+    }
 
-  .platform{
-    font-weight: lighter;
-  }
+    .platform{
+      font-weight: lighter;
+    }
 
-  .destination{
-    font-size: 20px;
-    padding-top: 12px;
-  }
-  .origin{
-    color: #ccc;
-    font-size: 14px;
+    .destination{
+      font-size: 18px;
+    }
+    .origin{
+      color: #ccc;
+      font-size: 14px;
+    }
   }
 }

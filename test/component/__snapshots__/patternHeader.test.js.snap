@@ -7,14 +7,16 @@ exports[`patternHeader should render correctly 1`] = `
   <div
     className="trainIcon"
   >
-    T
+    <div
+      className="trainIcon undefined undefined"
+    />
   </div>
-  <div
+  <h4
     className="origin"
   >
     Now Naija
-  </div>
-  <div
+  </h4>
+  <h3
     className="destination"
   >
     <span>
@@ -22,10 +24,11 @@ exports[`patternHeader should render correctly 1`] = `
     </span>
      
     Better Naija
-  </div>
+  </h3>
   <div
     className="operatedBy"
   >
+    Operated by 
     Me and You
   </div>
 </div>

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
-import { selectData } from '../selectors';
+import { selectData, selectIsFetchingData } from '../selectors';
 import * as actions from '../actions';
 
 import styles from './traintimes.scss';
 import TimesJourney from '../components/timesJourney';
+import Loading from '../components/loading';
 
 class TrainTimes extends Component {
   componentDidMount() {
@@ -14,32 +15,38 @@ class TrainTimes extends Component {
   }
 
   render() {
-    const { trainTimes, fetchPattern } = this.props;
-    return (<ul className={styles.traintimes}>
+    const { trainTimes, isFetchingData } = this.props;
+    return (<div className={styles.traintimes}>
       {
-        trainTimes.map((timesJourney, index) => <TimesJourney
-          key={`${timesJourney.serviceIdentifier}-${index}`}
-          timesJourney={timesJourney}
-          onClick={fetchPattern}
-        />)
+        isFetchingData
+          ? <Loading />
+          : <ul className={styles.traintimesList}>
+            {
+              trainTimes.map((timesJourney, index) => <TimesJourney
+                key={`${timesJourney.serviceIdentifier}-${index}`}
+                timesJourney={timesJourney}
+              />)
+            }
+          </ul>
       }
-    </ul>);
+    </div>);
   }
 }
 
 
 const mapStateToProps = state => ({
-  trainTimes: selectData(state)
+  trainTimes: selectData(state),
+  isFetchingData: selectIsFetchingData(state)
 });
 
 const mapActionsToProps = dispatch => ({
-  fetchPattern: compose(dispatch, actions.fetchPattern),
   fetchTrainTimes: compose(dispatch, actions.fetchData),
+
 });
 
 TrainTimes.propTypes = {
   trainTimes: PropTypes.array.isRequired,
-  fetchPattern: PropTypes.func.isRequired,
+  isFetchingData: PropTypes.bool.isRequired,
   fetchTrainTimes: PropTypes.func.isRequired
 };
 

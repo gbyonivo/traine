@@ -1,18 +1,13 @@
-.traintimes{
+.patternWrapper{
   width: 100%;
   margin: 0;
-  height: 100%;
-  overflow: auto;
-  .traintimesList{
-    list-style-type: none;
-    padding: 0;
+  .pattern{
     border: solid 12px rgba(204, 204, 204, 0.4);
-    margin: 0;
   }
 }
 
 @media screen and (min-width: 786px) {
-  .traintimes{
+  .patternWrapper{
     width: 700px;
     margin-left: calc(50% - 350px);
   }

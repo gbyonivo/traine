@@ -2,10 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-auto-rows: minmax(60px, auto);
+  &:last-child .locationAndStatus{
+    border-left: none;
+  }
   .locationAndStatus{
     position: relative;
     border-left: 2px solid #ececec;
     padding-left: 20px;
+    
     .location{
       font-size: 18px;
       position: relative;
@@ -46,11 +50,11 @@
     border: 2px solid rgba(255, 255, 255, 0);
   }
   &.NOT_STARTED .locationAndStatus .location::before{
-    background: green;
+    background: orange;
     border: 2px solid rgba(255, 255, 255, 0);
   }
   &.MOVING .locationAndStatus .location::before{
-    background: orange;
+    background: green;
     top: 1.8rem;
     border: 2px solid rgba(255, 255, 255, 0);
   }

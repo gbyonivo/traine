@@ -23,7 +23,8 @@ const store = createStore(
 WebFont.load({
   google: {
     families: [
-      'Patua One'
+      'Patua One',
+      'Fira Sans'
     ]
   }
 });

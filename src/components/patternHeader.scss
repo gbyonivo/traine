@@ -6,20 +6,22 @@
     span{
       color: #ccc;
     }
+    margin: 0;
   }
   .operatedBy{
     color: #ccc;
+    font-size: 12px;
   }
   .origin{
-
+    font-weight: bolder;
+    padding: 5px 0;
+    margin: 0;
   }
   .trainIcon{
     grid-row-start: 1;
     grid-row-end: 4;
     font-size: 40px;
     text-align: center;
-    // &::after{
-    //   content: '\9a86'
-    // }
+    padding-top: 10px;
   }
 }

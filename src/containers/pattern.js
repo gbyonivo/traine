@@ -8,6 +8,8 @@ import * as actions from '../actions';
 import { selectPattern, selectIsFetchingPattern } from '../selectors';
 import Header from '../components/patternHeader';
 import Stops from '../components/stops';
+import Loading from '../components/loading';
+import styles from './pattern.scss';
 
 class Pattern extends Component {
   componentDidMount() {
@@ -17,13 +19,11 @@ class Pattern extends Component {
 
   render() {
     const { pattern, isFetchingPattern } = this.props;
-    return (<div>
+    return (<div className={styles.patternWrapper}>
       {
         isFetchingPattern || !pattern.transportMode
-          ? <span>
-            loading
-          </span>
-          : <div>
+          ? <Loading/>
+          : <div className={styles.pattern}>
             <Header
               headerData={{
                 operatedBy: pattern.serviceOperator,

@@ -4,7 +4,7 @@ import { getMessage, getScheduledTime } from '../functions';
 
 import styles from './stop.scss'; //eslint-disable-line
 
-const Stop = ({ stop: { arrival, location, departure }, currentTrainLocation, assignedId }) => <div
+const Stop = ({ stop: { arrival, location, departure }, currentTrainLocation, assignedId }) => <li
   className={`
     ${styles.stop}
     ${location.crs === currentTrainLocation.station && assignedId === currentTrainLocation.assignedId
@@ -18,7 +18,7 @@ const Stop = ({ stop: { arrival, location, departure }, currentTrainLocation, as
     <div className={styles.location}>{location.crs}</div>
     <div className={styles.status}>{getMessage(departure, arrival)}</div>
   </div>
-</div>;
+</li>;
 
 Stop.propTypes = {
   stop: PropTypes.object.isRequired,
