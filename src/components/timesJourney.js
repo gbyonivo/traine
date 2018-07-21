@@ -12,10 +12,10 @@ const TimesJourney = ({ timesJourney }) => <li><Link to={timesJourney.serviceIde
   <div className={styles.platform}>PLAT. {timesJourney.scheduledInfo.scheduledPlatform}</div>
   <div className={styles.origin}>LONDON</div>
   <div className={styles.updateTime}>
-    <span>EXP</span>
+    <span>EXP </span>
     {
       extractTime(
-        timesJourney.realTimeUpdatesInfo
+        timesJourney.realTimeUpdatesInfo && timesJourney.realTimeUpdatesInfo.realTimeServiceInfo
           ? timesJourney.realTimeUpdatesInfo.realTimeServiceInfo.realTime
           : timesJourney.scheduledInfo.scheduledTime
       )
