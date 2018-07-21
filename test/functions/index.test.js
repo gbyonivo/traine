@@ -63,7 +63,8 @@ describe('getStationAndPosition', () => {
     const actual = Functions.getStationAndPosition(stops, '01:13');
     const expected = {
       station: 'WOK',
-      positionType: HALTED
+      positionType: HALTED,
+      assignedId: 3
     };
     expect(actual).toMatchObject(expected);
   });
@@ -71,7 +72,8 @@ describe('getStationAndPosition', () => {
     const actual = Functions.getStationAndPosition(stops, '00:30');
     const expected = {
       station: 'VXH',
-      positionType: HALTED
+      positionType: HALTED,
+      assignedId: 1
     };
     expect(actual).toMatchObject(expected);
   });
@@ -79,7 +81,8 @@ describe('getStationAndPosition', () => {
     const actual = Functions.getStationAndPosition(stops, '00:31');
     const expected = {
       station: 'VXH',
-      positionType: MOVING
+      positionType: MOVING,
+      assignedId: 1,
     };
     expect(actual).toMatchObject(expected);
   });
@@ -87,7 +90,8 @@ describe('getStationAndPosition', () => {
     const actual = Functions.getStationAndPosition(stops, '01:11');
     const expected = {
       station: 'CLJ',
-      positionType: MOVING
+      positionType: MOVING,
+      assignedId: 2
     };
     expect(actual).toMatchObject(expected);
   });
@@ -95,7 +99,8 @@ describe('getStationAndPosition', () => {
     const actual = Functions.getStationAndPosition(stops, '00:10');
     const expected = {
       station: 'WAT',
-      positionType: NOT_STARTED
+      positionType: NOT_STARTED,
+      assignedId: 0
     };
     expect(actual).toMatchObject(expected);
   });

@@ -3,7 +3,9 @@
 exports[`Stops should render correctly should render Correctly 1`] = `
 <div>
   <div
-    className="stop "
+    className="
+      stop
+      "
   >
     <div
       className="time"
@@ -26,7 +28,9 @@ exports[`Stops should render correctly should render Correctly 1`] = `
     </div>
   </div>
   <div
-    className="stop "
+    className="
+      stop
+      "
   >
     <div
       className="time"
@@ -49,7 +53,9 @@ exports[`Stops should render correctly should render Correctly 1`] = `
     </div>
   </div>
   <div
-    className="stop "
+    className="
+      stop
+      "
   >
     <div
       className="time"
@@ -72,7 +78,9 @@ exports[`Stops should render correctly should render Correctly 1`] = `
     </div>
   </div>
   <div
-    className="stop HALTED"
+    className="
+      stop
+      HALTED"
   >
     <div
       className="time"

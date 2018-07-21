@@ -5,7 +5,7 @@ import trackClock from '../hocs/trackClock';
 
 const Stops = ({ stops, ...rest }) => <div>
   {
-    stops.map((stop, index) => <Stop stop={stop} key={`${stop.location.crs}-${index}`} {...rest}/>)
+    stops.map((stop, index) => <Stop stop={stop} key={`${stop.location.crs}-${index}`} {...rest} assignedId = {index}/>)
   }
 </div>;
 

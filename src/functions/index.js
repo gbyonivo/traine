@@ -41,14 +41,16 @@ export const getStationAndPosition = (stops, currentTime) => { // to be refactor
     if (index === 0 && currentTime < stopDepartureTime) {
       stationAndPosition = {
         station: stop.location.crs,
-        positionType: NOT_STARTED
+        positionType: NOT_STARTED,
+        assignedId: index
       };
       return true;
     }
     if (!stops[index + 1]) {
       stationAndPosition = {
         station: currentTime >= stopArrivalTime ? stop.location.crs : stops[index - 1].location.crs,
-        positionType: currentTime >= stopArrivalTime ? HALTED : MOVING
+        positionType: currentTime >= stopArrivalTime ? HALTED : MOVING,
+        assignedId: currentTime >= stopArrivalTime ? index : index - 1
       };
       return true;
     }
@@ -57,14 +59,16 @@ export const getStationAndPosition = (stops, currentTime) => { // to be refactor
     if (currentTime === nextStopArrivalTime) {
       stationAndPosition = {
         station: stops[index + 1].location.crs,
-        positionType: HALTED
+        positionType: HALTED,
+        assignedId: index + 1
       };
       return true;
     }
     if (currentTime >= stopDepartureTime && currentTime < nextStopDepartureTime) {
       stationAndPosition = {
         station: stop.location.crs,
-        positionType: MOVING
+        positionType: MOVING,
+        assignedId: index
       };
       return true;
     }
