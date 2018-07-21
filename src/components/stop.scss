@@ -2,10 +2,10 @@
   display: grid;
   grid-template-columns: 1fr 4fr;
   .status{
-
+    font-size: 12px;
   }
   .location{
-
+    font-size: 18px;
   }
   .time{
     grid-row-start: 1;

@@ -4,6 +4,7 @@ import {
   ERROR_FETCHING_DATA,
   FETCH_PATTERN,
   DONE_FETCHING_PATTERN,
+  ERROR_FETCHING_PATTERN,
 } from '../constants/actionTypes';
 
 const initialState = {
@@ -46,7 +47,7 @@ const ACTION_HANDLERS = {
     errorFetchingPattern: null,
   }),
 
-  [ERROR_FETCHING_DATA]: (state, { error: errorFetchingPattern }) => ({
+  [ERROR_FETCHING_PATTERN]: (state, { error: errorFetchingPattern }) => ({
     ...state,
     isFetchingPattern: false,
     errorFetchingPattern

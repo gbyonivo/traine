@@ -1,13 +1,20 @@
 import React from 'react';
-import { create } from 'react-test-renderer';
+import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
-import TrainTimes from '../../src/components/traintimes';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import TrainTimes from '../../src/containers/traintimes';
+import combinedReducer from '../../src/reducers';
+import { stateWithData } from '../__testData__';
 
 describe('TrainTimes', () => {
   it('should render correctly', () => {
-    const actual = create(
+    const store = createStore(combinedReducer(), { dataReducer: stateWithData });
+    const actual = mount(
       <MemoryRouter initialEntries={[{ pathname: '/', key: 'testKey' }]}>
-        <TrainTimes/>
+        <Provider store={store}>
+          <TrainTimes />
+        </Provider>
       </MemoryRouter>
     );
     expect(actual).toMatchSnapshot();

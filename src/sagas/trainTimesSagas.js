@@ -2,7 +2,7 @@ import {
   call,
   put,
   all,
-  takeLatest
+  takeLatest,
 } from 'redux-saga/effects';
 import {
   doneFetchingData,

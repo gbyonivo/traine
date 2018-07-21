@@ -6,7 +6,7 @@ describe('fetchData', () => {
     const actual = fetchData('manchester');
     const expected = {
       type: FETCH_DATA,
-      payload: { location: 'manchester' }
+      payload: { data: 'manchester' }
     };
     expect(expected).toMatchObject(actual);
   });

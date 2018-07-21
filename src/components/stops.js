@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Stop from './stop';
+import trackClock from '../hocs/trackClock';
 
 const Stops = ({ stops }) => <div>
   {
@@ -12,4 +13,4 @@ Stops.propTypes = {
   stops: PropTypes.array.isRequired
 };
 
-export default Stops;
+export default trackClock(Stops);

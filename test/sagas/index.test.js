@@ -1,5 +1,5 @@
 import { call } from 'redux-saga/effects';
-import weatherSagas from '../../src/sagas/weatherSagas';
+import trainTimesSagas from '../../src/sagas/trainTimesSagas';
 import rootSaga from '../../src/sagas';
 
 describe('rootSaga', () => {
@@ -10,7 +10,7 @@ describe('rootSaga', () => {
       gen.next()
     ];
     const expected = [
-      { done: false, value: [call(weatherSagas)] },
+      { done: false, value: [call(trainTimesSagas)] },
       { done: true, value: undefined }
     ];
     expect(actual).toEqual(expected);

@@ -1,10 +1,11 @@
 import { call, put, select, takeLatest, all } from 'redux-saga/effects'; // eslint-disable-line
-import { fetchDataSaga, sagas } from '../../src/sagas/weatherSagas';
+import { fetchDataSaga, sagas, fetchPatternSaga } from '../../src/sagas/trainTimesSagas';
 import { fetchDataFromAPI } from '../../src/api/apiService';
 import { doneFetchingData } from '../../src/actions';
+import { FETCH_DATA, FETCH_PATTERN } from '../../src/constants/actionTypes';
 
-import { data } from '../__testData__';
-import { FETCH_DATA } from '../../src/constants/actionTypes';
+
+const data = {};
 
 describe('fetchDataSaga', () => {
   it('should call fetchDataFromAPI and doneFetchingData', () => {
@@ -35,7 +36,8 @@ describe('sagas', () => {
       {
         done: false,
         value: all([
-          takeLatest(FETCH_DATA, fetchDataSaga)
+          takeLatest(FETCH_DATA, fetchDataSaga),
+          takeLatest(FETCH_PATTERN, fetchPatternSaga),
         ])
       },
       { done: true, value: undefined }

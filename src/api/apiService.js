@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const fetchPatternFromAPI = serviceIdentifier => axios
-  .get(`https://realtime.thetrainline.com/callingPattern/${serviceIdentifier}/2018-07-19`)
+  .get(`https://realtime.thetrainline.com/callingPattern/${serviceIdentifier}/2018-07-21`)
   .then(response => response.data);
 
 export const fetchDataFromAPI = () => axios
