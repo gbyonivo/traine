@@ -87,7 +87,7 @@ exports[`Stops should render correctly should render Correctly 1`] = `
     <div
       className="time"
     >
-      01:12
+      01:13
     </div>
     <div
       className="locationAndStatus"

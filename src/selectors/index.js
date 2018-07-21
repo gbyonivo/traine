@@ -1,4 +1,6 @@
-export const selectData = ({ dataReducer: { data } }) => data.services || [];
+export const selectData = ({ dataReducer: { data } }) => data.services
+  ? data.services.filter(journey => journey.transportMode === 'TRAIN')
+  : [];
 
 export const selectPattern = ({ dataReducer: { pattern } }) => pattern.service || {};
 

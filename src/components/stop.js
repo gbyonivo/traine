@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getMessage, getScheduledTime } from '../functions';
+import { getMessage, getActualTime } from '../functions';
 
 import styles from './stop.scss'; //eslint-disable-line
 
@@ -12,7 +12,10 @@ const Stop = ({ stop: { arrival, location, departure }, currentTrainLocation, as
     : ''}`}
 >
   <div className={styles.time}>
-    {getScheduledTime(arrival.notApplicable ? departure : arrival)}
+    {arrival.notApplicable
+      ? getActualTime(departure)
+      : getActualTime(arrival)
+    }
   </div>
   <div className={styles.locationAndStatus}>
     <div className={styles.location}>{location.crs}</div>
