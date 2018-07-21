@@ -76,4 +76,19 @@ describe('refresh', () => {
 
     jasmine.clock().uninstall();
   });
+
+  it('should clear timers when unmounted', () => {
+    jasmine.clock().install();
+    jasmine.clock().mockDate(new Date(2018, 7, 21, 1, 0, 20));
+    const component = renderer.create(<TimedComponent prop="test" stops={stops}/>);
+
+    spyOn(TimedComponent.prototype, 'render').and.callThrough();
+
+    jasmine.clock().tick(40000);
+    expect(TimedComponent.prototype.render.calls.count()).toBe(1);
+    jasmine.clock().tick(60000);
+    expect(TimedComponent.prototype.render.calls.count()).toBe(2);
+
+    jasmine.clock().uninstall();
+  });
 });

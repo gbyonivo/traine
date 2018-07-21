@@ -1,7 +1,9 @@
 import dateFns from 'date-fns';
 import { HALTED, MOVING, NOT_STARTED } from '../constants/positionTypes';
 
-export const extractTime = date => dateFns.format(date || new Date(), 'HH:mm');
+export const extractTime = (date, format) => dateFns.format(date || new Date(), format || 'HH:mm');
+
+export const getMilliSecondsLeftToTheNextMinute = seconds => 1000 * (60 - parseInt(seconds, 10));
 
 export const getRealTime = ({ realTime }) => realTime ? extractTime(realTime.realTimeServiceInfo.realTime) : '';
 

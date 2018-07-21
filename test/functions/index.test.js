@@ -20,6 +20,12 @@ describe('shouldStartTime', () => {
   });
 });
 
+describe('', () => {
+  it('should return seconds left to reach the next minute', () => {
+    expect(Functions.getMilliSecondsLeftToTheNextMinute(20)).toEqual(40000);
+  });
+});
+
 describe('getActualTime', () => {
   it('should return realTime if real time is attached', () => {
     const arrivalOrDeparture = {

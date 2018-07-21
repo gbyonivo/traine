@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import dateFns from 'date-fns';
-import { getStationAndPosition, extractTime, shouldStartTime } from '../functions';
+import {
+  getStationAndPosition,
+  extractTime,
+  shouldStartTime,
+  getMilliSecondsLeftToTheNextMinute
+} from '../functions';
 
 export default (Component) => {
   class TrackClock extends React.Component {
     constructor() {
       super();
       this.timer = null;
+      this.isFirstTime = true;
       this.state = {
         currentDateTime: new Date()
       };
@@ -29,8 +35,15 @@ export default (Component) => {
 
     startTimer() {
       const { stops } = this.props;
-      if (!stops || stops.length === 0 || !shouldStartTime(this.props.stops[stops.length - 1], extractTime(this.state.currentDateTime))) {
+      if (!stops
+        || stops.length === 0
+        || !shouldStartTime(this.props.stops[stops.length - 1], extractTime(this.state.currentDateTime))) {
         this.clearTimer();
+        return;
+      }
+      if (this.isFirstTime) {
+        this.isFirstTime = false;
+        this.timer = setTimeout(this.addTime, getMilliSecondsLeftToTheNextMinute(extractTime(this.state.currentDateTime, 'ss')));
         return;
       }
       this.timer = setTimeout(this.addTime, 60000);
