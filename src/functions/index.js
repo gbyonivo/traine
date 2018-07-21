@@ -13,6 +13,10 @@ export const getActualTime = arrivalOrDeperature => arrivalOrDeperature.realTime
   ? getRealTime(arrivalOrDeperature)
   : getScheduledTime(arrivalOrDeperature);
 
+export const getScheduledTimeOrElseRealTime = arrivalOrDeperature => arrivalOrDeperature.scheduled
+  ? getScheduledTime(arrivalOrDeperature)
+  : getRealTime(arrivalOrDeperature);
+
 export const getMessage = (departure, arrival, currentDateTime) => {
   const currentTime = extractTime(currentDateTime);
   const actualArrivalTime = getActualTime(arrival);

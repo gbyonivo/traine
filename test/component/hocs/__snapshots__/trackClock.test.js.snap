@@ -1,18 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`refresh should return a Refresh component when passed a named component 1`] = `
-<div
-  className="test"
-/>
-`;
-
 exports[`refresh should return a TimedComponent component when passed a named component 1`] = `
-<div
-  className="test"
-/>
-`;
-
-exports[`refresh should return a TimedComponent empty stops 1`] = `
 <div
   className="test"
 />
