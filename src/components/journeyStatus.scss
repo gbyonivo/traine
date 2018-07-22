@@ -1,0 +1,8 @@
+.journeyStatus{
+  &.delayed, &.exp{
+    color: red;
+  }
+  &.onTime{
+    color: green;
+  }
+}

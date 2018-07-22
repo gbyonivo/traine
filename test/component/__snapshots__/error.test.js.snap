@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error should render correctly 1`] = `
+<div
+  className="error"
+>
+  qwqeqfdj dsfljsllsf dlsfjljsf
+  <br />
+  <button
+    onClick={[Function]}
+  >
+    refresh
+  </button>
+</div>
+`;

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JourneyStatus should render correctly and display delay message 1`] = `
+<div
+  className="delayed undefined journeyStatus"
+>
+  Delayed
+</div>
+`;
+
+exports[`JourneyStatus should render correctly and display exp message 1`] = `
+<div
+  className="delayed undefined journeyStatus"
+>
+  Delayed
+</div>
+`;
+
+exports[`JourneyStatus should render correctly and display on time 1`] = `
+<div
+  className="onTime undefined journeyStatus"
+>
+  On Time
+</div>
+`;
+
+exports[`JourneyStatus should render correctly and display ontime 1`] = `
+<div
+  className="delayed undefined journeyStatus"
+>
+  Delayed
+</div>
+`;

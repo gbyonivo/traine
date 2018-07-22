@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './timesJourney.scss';
 import { extractTime } from '../functions';
+import JourneyStatus from './journeyStatus';
 
 const TimesJourney = ({ timesJourney }) => <li className={styles.timesJourneyItem}>
   <Link to={timesJourney.serviceIdentifier}><div className={styles.timesJourney}>
@@ -12,16 +13,11 @@ const TimesJourney = ({ timesJourney }) => <li className={styles.timesJourneyIte
     <div className={styles.destination}>{timesJourney.destinationList[0].crs}</div>
     <div className={styles.platform}>PLAT. {timesJourney.scheduledInfo.scheduledPlatform}</div>
     <div className={styles.origin}>LONDON</div>
-    <div className={styles.updateTime}>
-      <span>EXP </span>
-      {
-        extractTime(
-          timesJourney.realTimeUpdatesInfo && timesJourney.realTimeUpdatesInfo.realTimeServiceInfo
-            ? timesJourney.realTimeUpdatesInfo.realTimeServiceInfo.realTime
-            : timesJourney.scheduledInfo.scheduledTime
-        )
-      }
-    </div>
+    <JourneyStatus
+      className={styles.updateTime}
+      scheduledInfo={timesJourney.scheduledInfo}
+      realTimeUpdatesInfo={timesJourney.realTimeUpdatesInfo}
+    />
   </div></Link></li>;
 
 TimesJourney.propTypes = {

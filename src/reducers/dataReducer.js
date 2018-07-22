@@ -19,7 +19,8 @@ const initialState = {
 const ACTION_HANDLERS = {
   [FETCH_DATA]: state => ({
     ...state,
-    isFetchingData: true
+    isFetchingData: true,
+    errorFetchingData: null
   }),
 
   [DONE_FETCHING_DATA]: (state, { data }) => ({
@@ -37,7 +38,8 @@ const ACTION_HANDLERS = {
 
   [FETCH_PATTERN]: state => ({
     ...state,
-    isFetchingPattern: true
+    isFetchingPattern: true,
+    errorFetchingPattern: null
   }),
 
   [DONE_FETCHING_PATTERN]: (state, { pattern }) => ({

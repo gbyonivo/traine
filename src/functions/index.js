@@ -83,3 +83,32 @@ export const getStationAndPosition = (stops, currentTime) => { // to be refactor
 
   return stationAndPosition;
 };
+
+export const getJourneyStatus = (scheduledInfo, realTimeUpdatesInfo) => {
+  if (realTimeUpdatesInfo) {
+    if (realTimeUpdatesInfo.delayReason) {
+      return {
+        message: 'Delayed',
+        className: 'delayed'
+      };
+    }
+    if (realTimeUpdatesInfo.realTimeServiceInfo
+      && scheduledInfo
+      && scheduledInfo.scheduledTime === realTimeUpdatesInfo.realTimeServiceInfo.realTime) {
+      return {
+        message: 'On Time',
+        className: 'onTime'
+      };
+    }
+    if (realTimeUpdatesInfo.realTimeServiceInfo) {
+      return {
+        message: `Exp ${extractTime(realTimeUpdatesInfo.realTimeServiceInfo.realTime)}`,
+        className: 'exp'
+      };
+    }
+  }
+  return {
+    message: 'On Time',
+    className: 'onTime'
+  };
+};
